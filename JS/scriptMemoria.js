@@ -25,26 +25,27 @@ for(let i = 0; i < cartas.length; i++){
     cartas[i].style.backgroundImage = `url("images/${imagens[i]}")`;
 }
 
-setTimeout(function(){
-    for(let carta of cartas){
-        carta.style.backgroundImage = 'url("images/Cuphead_and_his_pal_Mugman.png)';
-        carta.onclick = function(){
-
-            if(cartaVirada && cartaVirada.id !== carta.id){
-                if(cartaVirada.style.backgroundImage === carta.style.backgroundImage){
-                    cartaVirada.onclick = null;
-                    carta.onclick = null;
-                }
-                else{
-                    carta.style.backgroundImage = 'url("images/Cuphead_and_his_pal_Mugman.png)';
-                    cartaVirada.style.backgroundImage = 'url("images/Cuphead_and_his_pal_Mugman.png)';
-                }
-                cartaVirada = null;
+setTimeout(function () {
+    for (let carta of cartas) {
+      carta.style.backgroundImage = 'url("images/Cuphead_and_his_pal_Mugman.png")';
+      carta.onclick = function () {
+        carta.style.backgroundImage = `url("images/${imagens[Number(carta.id)]}")`;
+        if (cartaVirada && cartaVirada.id !== carta.id) {
+          setTimeout(function () {
+            if (cartaVirada.style.backgroundImage === carta.style.backgroundImage) {
+              cartaVirada.onclick = null;
+              carta.onclick = null;
             }
-            else{
-            carta.style.backgroundImage = `url(images/${imagens[Number(carta.id)]})`;
-            cartaVirada = carta;
+            else {
+              carta.style.backgroundImage = 'url("images/Cuphead_and_his_pal_Mugman.png")';
+              cartaVirada.style.backgroundImage = 'url("images/Cuphead_and_his_pal_Mugman.png")';
             }
+            cartaVirada = null;
+          }, 1500)
         }
+        else {
+          cartaVirada = carta;
+        }
+      }
     }
-}, 3000);
+  }, 3000);
