@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    height: 130px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 10px double white;
+}
+
+h1{
+    color: white;
+}
+
+main{
+    height: calc(100vh - 130px);
+    width: 70vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    /* fr = fração da tela, nesse caso, o grid está dividindo a main em 4 partes iguais (tanto colunas como linhas)*/
+}
+
+.card{
+    background-color: white;
+    height: 100px;
+    width: 100px;
+}
